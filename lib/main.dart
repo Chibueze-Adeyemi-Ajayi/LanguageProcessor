@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:language_processor/screens/flashscreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,6 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(theme: ThemeData(primarySwatch: Colors.blue,),
+    debugShowCheckedModeBanner: false,
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
@@ -25,16 +27,19 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   
+  int page_state = 0;
+  void setPageState (int page) {
+    setState(() {
+      page_state = page;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(widget.title),),
-      body: Text("Hola"),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      body: [
+        Flashscreen()
+      ][page_state], // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
