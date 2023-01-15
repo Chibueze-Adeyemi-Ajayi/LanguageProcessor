@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:language_processor/screens/flashscreen.dart';
+import 'package:language_processor/screens/index.dart';
 
 void main() {
   runApp(const MyApp());
@@ -38,7 +39,8 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: [
-        Flashscreen()
+        Flashscreen(callback: setPageState,),
+        IndexScreen(callback: setPageState,)
       ][page_state], // This trailing comma makes auto-formatting nicer for build methods.
     );
   }

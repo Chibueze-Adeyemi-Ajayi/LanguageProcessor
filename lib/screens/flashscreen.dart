@@ -1,13 +1,26 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Flashscreen extends StatefulWidget {
-  const Flashscreen({Key? key}) : super(key: key);
+  const Flashscreen({Key? key, required this.callback}) : super(key: key);
+  final callback;
   @override
-  State<Flashscreen> createState() => _FlashscreenState();
+  State<Flashscreen> createState() => _FlashscreenState(callback: callback);
 }
 
 class _FlashscreenState extends State<Flashscreen> {  
+  final callback; 
+  _FlashscreenState({required this.callback});
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    Timer(Duration(seconds: 5), (){callback(1);});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
