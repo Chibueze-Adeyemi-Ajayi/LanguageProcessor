@@ -21,7 +21,10 @@ class _IndexScreenState extends State<IndexScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    _init_speech();
+    try {  _init_speech(); } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
+    }
+  
   }
   AppBar appBar () {
     return AppBar(
@@ -69,10 +72,12 @@ class _IndexScreenState extends State<IndexScreen> {
       floatingActionButton: FloatingActionButton(
         elevation: .75, 
         onPressed: () {
-          if (!listening) {
-            speech.startListening();
-          } else {
-            speech.stopListening();
+          try {
+
+            if (!listening) speech.startListening(); else speech.stopListening();
+            
+          } catch (e) {
+            ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
           }
         }, child: Icon(Icons.mic),
       ),// This trailing comma makes auto-formatting nicer for build methods.

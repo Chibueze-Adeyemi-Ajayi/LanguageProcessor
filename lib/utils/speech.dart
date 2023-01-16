@@ -7,8 +7,10 @@ class Speech {
   // init tts
   Speech({required this.callback});
   Future <bool> initSpeech () async {
-     speechEnabled = await _speechToText.initialize(); 
-     return speechEnabled;
+    try {
+      speechEnabled = await _speechToText.initialize(); 
+      return speechEnabled; 
+    } catch (e) { return false; }
   }
     
   /// Each time to start a speech recognition session

@@ -12,7 +12,7 @@ class HomePage extends StatefulWidget {
 
  TextEditingController inputTextController = new TextEditingController();
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage> { String lang = "null";
   @override
   void initState() {
     // TODO: implement initState
@@ -47,6 +47,8 @@ class _HomePageState extends State<HomePage> {
             ),
             width: MediaQuery.of(context).size.width, height: 200,),
           Container(height: 25,),
+          Text("Detected langauge: $lang"),
+          Container(height: 25,),
           Container(child: TextField( 
               maxLines: null, minLines: 1,
               keyboardType: TextInputType.multiline,
@@ -64,8 +66,6 @@ class _HomePageState extends State<HomePage> {
             ),
             width: MediaQuery.of(context).size.width, height: 200,),
           Container(height: 25,),
-          Text("Detected langauge: null"),
-          Container(height: 25,),
           TextButton(onPressed: () async {
             var text = inputTextController.text;
             //displaying toast message
@@ -73,7 +73,10 @@ class _HomePageState extends State<HomePage> {
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Invalid Input")));
               return;
             }
-            List languages = await LanguageNetwork.detectLanguage(text);
+            String language = await LanguageNetwork.detectLanguage(text, context);
+            setState(() {
+              lang = language;
+            });
            // print(languages);
           }, child: Container(
             height: 55, width: MediaQuery.of(context).size.width,
