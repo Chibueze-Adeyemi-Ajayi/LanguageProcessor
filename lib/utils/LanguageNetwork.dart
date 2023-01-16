@@ -6,6 +6,7 @@ class LanguageNetwork {
 
   static Future <List> detectLanguage (String text) async {
     final String response = await languageIdentifier.identifyLanguage(text);
+    print(response);
     final List<IdentifiedLanguage> possibleLanguages = await languageIdentifier.identifyPossibleLanguages(text);
     return possibleLanguages;
   }

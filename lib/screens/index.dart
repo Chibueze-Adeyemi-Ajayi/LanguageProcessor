@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:language_processor/fragments/home.dart';
 import 'package:language_processor/fragments/settings.dart';
+import 'package:language_processor/utils/speech.dart';
 
 class IndexScreen extends StatefulWidget {
   const IndexScreen({Key? key, required this.callback}) : super(key: key);
@@ -11,7 +12,17 @@ class IndexScreen extends StatefulWidget {
 }
 
 class _IndexScreenState extends State<IndexScreen> { 
-  final callback;
+  final callback; bool listening = false;
+  Speech speech = Speech(callback: (value) {print(value);});
+  void _init_speech () async {
+      await speech.initSpeech();
+  }
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _init_speech();
+  }
   AppBar appBar () {
     return AppBar(
       title: Row(children: [Text("Language Processor", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold,))],),
@@ -56,8 +67,14 @@ class _IndexScreenState extends State<IndexScreen> {
       bottomNavigationBar: getBottomNavBar(), 
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
-        elevation: .5,
-        onPressed: () {}, child: Icon(Icons.mic),
+        elevation: .75, 
+        onPressed: () {
+          if (!listening) {
+            speech.startListening();
+          } else {
+            speech.stopListening();
+          }
+        }, child: Icon(Icons.mic),
       ),// This trailing comma makes auto-formatting nicer for build methods.
     );
   }

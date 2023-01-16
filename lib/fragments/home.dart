@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:language_processor/screens/flashscreen.dart';
 import 'package:language_processor/screens/index.dart';
 import 'package:language_processor/utils/LanguageNetwork.dart';
+import 'package:language_processor/utils/speech.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -12,7 +13,11 @@ class HomePage extends StatefulWidget {
  TextEditingController inputTextController = new TextEditingController();
 
 class _HomePageState extends State<HomePage> {
-  
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,7 +74,7 @@ class _HomePageState extends State<HomePage> {
               return;
             }
             List languages = await LanguageNetwork.detectLanguage(text);
-            print(languages);
+           // print(languages);
           }, child: Container(
             height: 55, width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(color: Colors.blueAccent, borderRadius: BorderRadius.circular(8)),
