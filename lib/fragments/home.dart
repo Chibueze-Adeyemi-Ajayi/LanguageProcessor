@@ -63,6 +63,7 @@ class _HomePageState extends State<HomePage> {
           Container(height: 25,),
           TextButton(onPressed: () async {
             var text = inputTextController.text;
+            //displaying toast message
             if (text == "") {
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Invalid Input")));
               return;
