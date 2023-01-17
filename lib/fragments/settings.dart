@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:language_processor/screens/flashscreen.dart';
 import 'package:language_processor/screens/index.dart';
@@ -21,8 +23,8 @@ class _SettingsPageState extends State<SettingsPage> {
   void update_lang_selected () async {
     String _default_lang = await LocalStorage(callback: (value) { print(value); }).getLocalLanguage();
     String _translate_lang = await LocalStorage(callback: (value) { print(value); }).getTranslateLanguage();
-    if (_default_lang != null) setState(() { default_lang = _default_lang.toString(); });
-    if (_translate_lang != null) setState(() { default_translate = _translate_lang.toString(); });
+    if (_default_lang != "null") setState(() { default_lang = _default_lang.toString(); });
+    if (_translate_lang != "null") setState(() { default_translate = _translate_lang.toString(); });
   }
 
   @override
@@ -78,7 +80,7 @@ class _SettingsPageState extends State<SettingsPage> {
               onChanged: (String ? selected) async {
                 await LocalStorage(callback: (str) {
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(str)));
-                }).addLocalLanguage(selected.toString());
+                }).addTranslateLanguage(selected.toString());
                 setState(() {
                   default_translate = selected.toString();
                 });
