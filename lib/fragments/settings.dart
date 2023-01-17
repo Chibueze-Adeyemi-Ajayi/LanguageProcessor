@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:language_processor/screens/flashscreen.dart';
 import 'package:language_processor/screens/index.dart';
+import 'package:language_processor/utils/Languages.dart';
 import 'package:language_processor/utils/LocalStorage.dart';
 
 class SettingsPage extends StatefulWidget {
@@ -10,12 +11,7 @@ class SettingsPage extends StatefulWidget {
   @override
   State<SettingsPage> createState() => _SettingsPageState();
 }
-List <String> languages = <String> [
-    "English", "Spanish", "Chinese", "Japanese",
-    "German", "Greek", "French", "Hebrew", "Hindi",
-    "Italian", "Korean", "Portugese", "Romanian", 
-    "Russian", "Turkish"
-  ];
+List <String> languages = Languages.getSupportedLanguages();
 class _SettingsPageState extends State<SettingsPage> {
   
   String default_lang = "English", default_translate = "Spanish";
