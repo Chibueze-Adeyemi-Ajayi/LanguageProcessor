@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_mlkit_language_id/google_mlkit_language_id.dart';
 import 'package:google_mlkit_translation/google_mlkit_translation.dart';
+import 'package:language_processor/utils/LocalStorage.dart';
 
 // Language Neural Network
 class LanguageNetwork {
@@ -26,6 +27,12 @@ class LanguageNetwork {
   static final _onDeviceTranslator = OnDeviceTranslator(sourceLanguage: _sourceLanguage, targetLanguage: _targetLanguage);
   static final modelManager = OnDeviceTranslatorModelManager();
 
+  // getting the user selected lnaguage choice
+  static Future <TranslateLanguage> getDefaultLanguage () async {
+    String default_language = await LocalStorage(callback: (val) {}).getLocalLanguage();
+    String default_translate = await LocalStorage(callback: (val) {}).getLocalLanguage();
+  }
+ 
   static Future <String> translate (text, context) async { String response = "";
     showDialog(
       barrierDismissible: false,
