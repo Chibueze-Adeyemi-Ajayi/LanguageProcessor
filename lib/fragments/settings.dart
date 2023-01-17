@@ -7,13 +7,16 @@ class SettingsPage extends StatefulWidget {
   @override
   State<SettingsPage> createState() => _SettingsPageState();
 }
-
+List <String> languages = <String> [
+    "English", "Spanish", "Chinese", "Japanese",
+    "German", "Greek", "French", "Hebrew", "Hindi",
+    "Italian", "Korean", "Portugese", "Romanian", 
+    "Russian", "Turkish"
+  ];
 class _SettingsPageState extends State<SettingsPage> {
   
-  var languages = [
-    "English", "Spanish", "Chinese", "Japanese"
-  ];
-
+  
+  String default_lang = "English", default_translate = "Spanish";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +32,7 @@ class _SettingsPageState extends State<SettingsPage> {
             Text("Select input language", style: TextStyle(fontSize: 20), textAlign: TextAlign.start,),
             Container(height: 25,),
             DropdownButton(
-              value: "English",
+              value: default_lang,
               icon: const Icon(Icons.keyboard_arrow_down),
               items: languages.map((String items) {
                 return DropdownMenuItem(
@@ -38,13 +41,13 @@ class _SettingsPageState extends State<SettingsPage> {
                 );
               }).toList(), 
               onChanged: (index) {
-
+                print(index);
             }),
             Container(height: 25,),
             Text("Select output language", style: TextStyle(fontSize: 20)),
             Container(height: 25,),
             DropdownButton(
-              value: "Spanish",
+              value: default_translate,
               icon: const Icon(Icons.keyboard_arrow_down),
               items: languages.map((String items) {
                 return DropdownMenuItem(
