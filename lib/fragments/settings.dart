@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:language_processor/screens/flashscreen.dart';
 import 'package:language_processor/screens/index.dart';
+import 'package:language_processor/utils/LocalStorage.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({Key? key}) : super(key: key);
@@ -40,7 +41,10 @@ class _SettingsPageState extends State<SettingsPage> {
                   child: Text(items),
                 );
               }).toList(), 
-              onChanged: (String ? selected) {
+              onChanged: (String ? selected) async {
+                await LocalStorage(callback: (str) {
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(str)));
+                }).addLocalLanguage(selected.toString());
                 setState(() {
                   default_lang = selected.toString();
                 });
@@ -57,7 +61,10 @@ class _SettingsPageState extends State<SettingsPage> {
                   child: Text(items),
                 );
               }).toList(), 
-              onChanged: (String ? selected) {
+              onChanged: (String ? selected) async {
+                await LocalStorage(callback: (str) {
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(str)));
+                }).addLocalLanguage(selected.toString());
                 setState(() {
                   default_translate = selected.toString();
                 });

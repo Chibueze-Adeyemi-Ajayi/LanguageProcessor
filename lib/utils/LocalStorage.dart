@@ -11,7 +11,7 @@ Future <void> addLocalLanguage (String lang) async {
         await prefs.setString(key, lang);
         callback("$lang set as local language");
     
-     } catch (e) {callback("Unexpected error adding input language");}
+     } catch (e) {callback("Unexpected error adding input language");print(e);}
    }
    Future <void> addTranslateLanguage (String lang) async {
      try {
