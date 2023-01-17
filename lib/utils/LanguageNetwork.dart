@@ -24,7 +24,8 @@ class LanguageNetwork {
   static final TranslateLanguage _sourceLanguage = TranslateLanguage.english;
   static final TranslateLanguage _targetLanguage = TranslateLanguage.spanish;
   static final _onDeviceTranslator = OnDeviceTranslator(sourceLanguage: _sourceLanguage, targetLanguage: _targetLanguage);
-      
+  static final modelManager = OnDeviceTranslatorModelManager();
+
   static Future <String> translate (text, context) async { String response = "";
     showDialog(
       barrierDismissible: false,
@@ -33,11 +34,16 @@ class LanguageNetwork {
     });
     try {
 
-      response += await _onDeviceTranslator.translateText(text);
-      print(response);
-      return response;
+      // downloading language models
+      final bool response_ = await modelManager.isModelDownloaded(TranslateLanguage.english.bcpCode);
+      final bool response__ = await modelManager.isModelDownloaded(TranslateLanguage.spanish.bcpCode);
 
-    } catch (e) {} finally {Navigator.pop(context);} return response;
+      response += await _onDeviceTranslator.translateText(text); Navigator.pop(context);
+      return response; 
+
+    } catch (e) {Navigator.pop(context); print("error");} finally {
+      _onDeviceTranslator.close();
+    } return response;
   }
    
 }
