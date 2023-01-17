@@ -35,7 +35,10 @@ class LanguageNetwork {
     try {
 
       // downloading language models
+      
+      if (!await modelManager.isModelDownloaded(TranslateLanguage.english.bcpCode))
       final bool response_ = await modelManager.isModelDownloaded(TranslateLanguage.english.bcpCode);
+      if (!await modelManager.isModelDownloaded(TranslateLanguage.spanish.bcpCode))
       final bool response__ = await modelManager.isModelDownloaded(TranslateLanguage.spanish.bcpCode);
 
       response += await _onDeviceTranslator.translateText(text); Navigator.pop(context);
