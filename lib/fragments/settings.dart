@@ -40,8 +40,10 @@ class _SettingsPageState extends State<SettingsPage> {
                   child: Text(items),
                 );
               }).toList(), 
-              onChanged: (index) {
-                print(index);
+              onChanged: (String ? selected) {
+                setState(() {
+                  default_lang = selected.toString();
+                });
             }),
             Container(height: 25,),
             Text("Select output language", style: TextStyle(fontSize: 20)),
@@ -55,8 +57,10 @@ class _SettingsPageState extends State<SettingsPage> {
                   child: Text(items),
                 );
               }).toList(), 
-              onChanged: (index) {
-
+              onChanged: (String ? selected) {
+                setState(() {
+                  default_translate = selected.toString();
+                });
             }),
             
           ],)
