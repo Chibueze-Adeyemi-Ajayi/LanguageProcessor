@@ -10,7 +10,7 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
- TextEditingController inputTextController = new TextEditingController();
+ TextEditingController inputTextController = new TextEditingController(), outputTextController = new TextEditingController();
 
 class _HomePageState extends State<HomePage> { String lang = "null";
   @override
@@ -48,8 +48,12 @@ class _HomePageState extends State<HomePage> { String lang = "null";
             width: MediaQuery.of(context).size.width, height: 200,),
           Container(height: 25,),
           Text("Detected langauge: $lang"),
+          Container(height: 15,),
+          Text("Translating to: $lang"),
           Container(height: 25,),
           Container(child: TextField( 
+              enabled: false,
+              controller: outputTextController,
               maxLines: null, minLines: 1,
               keyboardType: TextInputType.multiline,
               autofocus: false,
@@ -73,11 +77,6 @@ class _HomePageState extends State<HomePage> { String lang = "null";
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Invalid Input")));
               return;
             }
-            String language = await LanguageNetwork.detectLanguage(text, context);
-            setState(() {
-              lang = language;
-            });
-           // print(languages);
           }, child: GestureDetector(child: Container(
             height: 55, width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(color: Colors.blueAccent, borderRadius: BorderRadius.circular(8)),
@@ -86,8 +85,12 @@ class _HomePageState extends State<HomePage> { String lang = "null";
             children: [
             Text("Translate", style: TextStyle(color: Colors.white, fontSize: 18),), Container(width: 15,), Icon(Icons.translate, color: Colors.white,)
           ],),), onTap: () async {
-            String response = await LanguageNetwork.translate("Hello, world", context);
-            print(response);
+            String language = await LanguageNetwork.detectLanguage(inputTextController.text, context);
+            String response = await LanguageNetwork.translate(inputTextController.text, context);
+            setState(() {
+              outputTextController.text = response;
+              lang = language;
+            });
           },)
           ),
           Container(height: 25,)
