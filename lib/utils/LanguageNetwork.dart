@@ -24,7 +24,7 @@ class LanguageNetwork {
 
   // language translation
   static final TranslateLanguage _sourceLanguage = TranslateLanguage.english;
-  static final TranslateLanguage _targetLanguage = TranslateLanguage.spanish;
+  static final TranslateLanguage _targetLanguage = TranslateLanguage.h;
   static final _onDeviceTranslator = OnDeviceTranslator(sourceLanguage: _sourceLanguage, targetLanguage: _targetLanguage);
   static final modelManager = OnDeviceTranslatorModelManager();
 
@@ -33,7 +33,7 @@ class LanguageNetwork {
     List <String> languages = Languages.getSupportedLanguages(); int x = -1;
     String default_language = await LocalStorage(callback: (val) {}).getLocalLanguage();
     String brp_code = getLanguageModules(0);
-    languages.forEach((lang) { x ++;
+    languages.forEach((lang) { x ++; print("lang");
       if (lang == default_language) brp_code = getLanguageModules(x);
     });
     return brp_code;
@@ -43,7 +43,7 @@ class LanguageNetwork {
   static Future <String> getTranslateLanguageBRPCode () async {
     List <String> languages = Languages.getSupportedLanguages(); int x = -1;
     String default_language = await LocalStorage(callback: (val) {}).getTranslateLanguage();
-    String brp_code = getLanguageModules(0);
+    String brp_code = getLanguageModules(7);
     languages.forEach((lang) { x ++;
       if (lang == default_language) brp_code = getLanguageModules(x);
     });
@@ -75,8 +75,8 @@ class LanguageNetwork {
       
       if (!await modelManager.isModelDownloaded(await getLocalLanguageBRPCode()))
       final bool response_ = await modelManager.isModelDownloaded(await getLocalLanguageBRPCode());
-      if (!await modelManager.isModelDownloaded(await getTranslateLanguageBRPCode()))
-      final bool response__ = await modelManager.isModelDownloaded(await getTranslateLanguageBRPCode());
+      if (!await modelManager.isModelDownloaded(TranslateLanguage.hebrew.bcpCode))
+      final bool response__ = await modelManager.isModelDownloaded((TranslateLanguage.hebrew.bcpCode));
 
       response += await _onDeviceTranslator.translateText(text); Navigator.pop(context);
       return response; 
