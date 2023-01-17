@@ -8,7 +8,7 @@ Future <void> addLocalLanguage (String lang) async {
      try {
 
         final prefs = await SharedPreferences.getInstance();
-        await prefs.setString(key, lang);
+        await prefs.setString(key, lang.toString());
         callback("$lang set as local language");
     
      } catch (e) {callback("Unexpected error adding input language");print(e);}
@@ -17,7 +17,7 @@ Future <void> addLocalLanguage (String lang) async {
      try {
 
       final prefs = await SharedPreferences.getInstance();
-      await prefs.setString(key2, lang);
+      await prefs.setString(key2, lang.toString());
       callback("$lang set as translate language");
     
      } catch (e) {callback("Unexpected error adding translate language");}

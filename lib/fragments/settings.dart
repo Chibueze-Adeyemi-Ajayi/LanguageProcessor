@@ -16,8 +16,22 @@ List <String> languages = <String> [
   ];
 class _SettingsPageState extends State<SettingsPage> {
   
-  
   String default_lang = "English", default_translate = "Spanish";
+
+  void update_lang_selected () async {
+    String _default_lang = await LocalStorage(callback: (value) { print(value); }).getLocalLanguage();
+    String _translate_lang = await LocalStorage(callback: (value) { print(value); }).getTranslateLanguage();
+    if (_default_lang != null) setState(() { default_lang = _default_lang.toString(); });
+    if (_translate_lang != null) setState(() { default_translate = _translate_lang.toString(); });
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    update_lang_selected();
+  }
+   
   @override
   Widget build(BuildContext context) {
     return Scaffold(
