@@ -11,8 +11,13 @@ class IndexScreen extends StatefulWidget {
   State<IndexScreen> createState() => _IndexScreenState(callback: callback);
 }
 
+var pager_controller = PageController();
+
 class _IndexScreenState extends State<IndexScreen> { 
   final callback; bool listening = false;
+  Color home_color = Colors.blueAccent,
+      settings_color = Colors.grey;
+
   Speech speech = Speech(callback: (value) {print(value);});
   void _init_speech () async {
       await speech.initSpeech();
@@ -42,14 +47,20 @@ class _IndexScreenState extends State<IndexScreen> {
   }
   BottomNavigationBar getBottomNavBar () {
     return BottomNavigationBar(
+      onTap: (index) {
+        if (index == 1)
+         pager_controller.nextPage(duration: Duration(milliseconds: 500), curve: Curves.ease);
+        else 
+         pager_controller.previousPage(duration: Duration(microseconds: 500), curve: Curves.ease);
+      },
       backgroundColor: Colors.white, fixedColor: Colors.grey,
       items: [
         BottomNavigationBarItem(
-          icon: Icon(Icons.home, color:Colors.blueAccent), 
+          icon: Icon(Icons.home, color: home_color), 
           label: "home"
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.settings, color:Colors.grey), 
+          icon: Icon(Icons.settings, color:settings_color), 
           label: "Settings"
         ),
       ],
@@ -63,10 +74,18 @@ class _IndexScreenState extends State<IndexScreen> {
       body: Container(color: Colors.white, 
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        child: PageView(children: [
-          HomePage(),
-          SettingsPage()
-        ],),),
+        child: PageView(
+          onPageChanged: (index) {
+            setState(() {
+              home_color = index == 0 ? Colors.blueAccent : Colors.grey;
+              settings_color = index == 1 ? Colors.blueAccent : Colors.grey;
+            });
+          },
+          controller: pager_controller,
+          children: [
+            HomePage(),
+            SettingsPage()
+          ],),),
       bottomNavigationBar: getBottomNavBar(), 
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(

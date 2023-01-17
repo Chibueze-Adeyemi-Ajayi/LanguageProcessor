@@ -26,7 +26,7 @@ class _SettingsPageState extends State<SettingsPage> {
           Column(
             mainAxisAlignment: MainAxisAlignment.center, crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-            Text("Select input language", textAlign: TextAlign.start,),
+            Text("Select input language", style: TextStyle(fontSize: 20), textAlign: TextAlign.start,),
             Container(height: 25,),
             DropdownButton(
               value: "English",
@@ -41,7 +41,21 @@ class _SettingsPageState extends State<SettingsPage> {
 
             }),
             Container(height: 25,),
-            Text("Select output language"),
+            Text("Select output language", style: TextStyle(fontSize: 20)),
+            Container(height: 25,),
+            DropdownButton(
+              value: "Spanish",
+              icon: const Icon(Icons.keyboard_arrow_down),
+              items: languages.map((String items) {
+                return DropdownMenuItem(
+                  value: items,
+                  child: Text(items),
+                );
+              }).toList(), 
+              onChanged: (index) {
+
+            }),
+            
           ],)
         ],)),
       ), // This trailing comma makes auto-formatting nicer for build methods.
