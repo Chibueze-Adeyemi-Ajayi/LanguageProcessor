@@ -33,8 +33,19 @@ class LanguageNetwork {
     List <String> languages = Languages.getSupportedLanguages(); int x = -1;
     String default_language = await LocalStorage(callback: (val) {}).getLocalLanguage();
     String brp_code = getLanguageModules(0);
-    languages.forEach((lang) {
-      if (lang.indexOf(default_language) > -1) brp_code = getLanguageModules(x);
+    languages.forEach((lang) { x ++;
+      if (lang == default_language) brp_code = getLanguageModules(x);
+    });
+    return brp_code;
+  }
+
+  // getting the user selected lnaguage choice
+  static Future <String> getTranslateLanguageBRPCode () async {
+    List <String> languages = Languages.getSupportedLanguages(); int x = -1;
+    String default_language = await LocalStorage(callback: (val) {}).getTranslateLanguage();
+    String brp_code = getLanguageModules(0);
+    languages.forEach((lang) { x ++;
+      if (lang == default_language) brp_code = getLanguageModules(x);
     });
     return brp_code;
   }
@@ -62,15 +73,15 @@ class LanguageNetwork {
 
       // downloading language models
       
-      if (!await modelManager.isModelDownloaded(TranslateLanguage.english.bcpCode))
-      final bool response_ = await modelManager.isModelDownloaded(TranslateLanguage.english.bcpCode);
-      if (!await modelManager.isModelDownloaded(TranslateLanguage.spanish.bcpCode))
-      final bool response__ = await modelManager.isModelDownloaded(TranslateLanguage.spanish.bcpCode);
+      if (!await modelManager.isModelDownloaded(await getLocalLanguageBRPCode()))
+      final bool response_ = await modelManager.isModelDownloaded(await getLocalLanguageBRPCode());
+      if (!await modelManager.isModelDownloaded(await getTranslateLanguageBRPCode()))
+      final bool response__ = await modelManager.isModelDownloaded(await getTranslateLanguageBRPCode());
 
       response += await _onDeviceTranslator.translateText(text); Navigator.pop(context);
       return response; 
 
-    } catch (e) {Navigator.pop(context); print("error");} finally {
+    } catch (e) {Navigator.pop(context); print("error $e");} finally {
       _onDeviceTranslator.close();
     } return response;
   }
