@@ -78,14 +78,19 @@ class _HomePageState extends State<HomePage> { String lang = "null";
               lang = language;
             });
            // print(languages);
-          }, child: Container(
+          }, child: GestureDetector(child: Container(
             height: 55, width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(color: Colors.blueAccent, borderRadius: BorderRadius.circular(8)),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
             children: [
             Text("Translate", style: TextStyle(color: Colors.white, fontSize: 18),), Container(width: 15,), Icon(Icons.translate, color: Colors.white,)
-          ],),))
+          ],),), onTap: () async {
+            String response = await LanguageNetwork.translate("Hello, world", context);
+            print(response);
+          },)
+          ),
+          Container(height: 25,)
         ],)),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
