@@ -24,7 +24,7 @@ class LanguageNetwork {
 
   // language translation
   static final TranslateLanguage _sourceLanguage = TranslateLanguage.english;
-  static final TranslateLanguage _targetLanguage = TranslateLanguage.h;
+  static final TranslateLanguage _targetLanguage = TranslateLanguage.hebrew;
   static final _onDeviceTranslator = OnDeviceTranslator(sourceLanguage: _sourceLanguage, targetLanguage: _targetLanguage);
   static final modelManager = OnDeviceTranslatorModelManager();
 
