@@ -33,10 +33,10 @@ class LanguageNetwork {
     List <String> languages = Languages.getSupportedLanguages(); int x = -1;
     String default_language = await LocalStorage(callback: (val) {}).getLocalLanguage();
     String brp_code = getLanguageModules(0);
-    languages.forEach((lang) { x ++; print("lang");
+    languages.forEach((lang) { x ++; 
       if (lang == default_language) brp_code = getLanguageModules(x);
     });
-    return brp_code;
+    return brp_code; 
   }
 
   // getting the user selected lnaguage choice
@@ -81,7 +81,7 @@ class LanguageNetwork {
       response += await _onDeviceTranslator.translateText(text); Navigator.pop(context);
       return response; 
 
-    } catch (e) {Navigator.pop(context); print("error $e");} finally {
+    } catch (e) {Navigator.pop(context);} finally {
       _onDeviceTranslator.close();
     } return response;
   }
