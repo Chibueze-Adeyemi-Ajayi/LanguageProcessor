@@ -43,6 +43,7 @@ class LanguageNetwork {
 
   // getting the user selected lnaguage choice
   static Future <String> getTranslateLanguageBRPCode () async {
+    // getting built in translated langauges
     List <String> languages = Languages.getSupportedLanguages(); int x = -1;
     String default_language = await LocalStorage(callback: (val) {}).getTranslateLanguage();
     String brp_code = getLanguageModules(7);
