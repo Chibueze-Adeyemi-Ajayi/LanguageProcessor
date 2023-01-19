@@ -47,6 +47,7 @@ class LanguageNetwork {
     List <String> languages = Languages.getSupportedLanguages(); int x = -1;
     String default_language = await LocalStorage(callback: (val) {}).getTranslateLanguage();
     String brp_code = getLanguageModules(7);
+    // looping through available languages
     languages.forEach((lang) { x ++;
       if (lang == default_language) brp_code = getLanguageModules(x);
     });
