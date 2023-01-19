@@ -35,7 +35,7 @@ class LanguageNetwork {
     String brp_code = getLanguageModules(0);
     languages.forEach((lang) { x ++; 
       if (lang == default_language) brp_code = getLanguageModules(x);
-    }); //return 
+    }); //\ 
     return brp_code; 
   }
 
