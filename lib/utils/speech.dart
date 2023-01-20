@@ -1,3 +1,4 @@
+import 'package:flutter_tts/flutter_tts.dart';
 import 'package:speech_to_text/speech_recognition_result.dart';
 import 'package:speech_to_text/speech_to_text.dart' as stt;
 
@@ -31,4 +32,19 @@ class Speech {
   void _onSpeechResult(SpeechRecognitionResult result) {
     callback(result.recognizedWords);
   }
+
+  // text to speech module
+  FlutterTts flutterTts = FlutterTts();
+
+  // speaking via speaker
+  Future _speak() async{
+    var result = await flutterTts.speak("Hello World");
+    if (result == 1) callback(true); else callback(false);
+  }
+
+  Future _stop() async{ 
+      var result = await flutterTts.stop();
+      if (result == 1) callback(true); else callback(false);
+  }
+
 }
