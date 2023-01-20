@@ -50,6 +50,40 @@ class LanguageNetwork {
     return brp_code;
   }
 
+  // getting the user selected language choice
+  static Future <TranslateLanguage> getLocalLanguage () async {
+    List <String> languages = Languages.getSupportedLanguages(); int x = -1;
+    String default_language = await LocalStorage(callback: (val) {}).getLocalLanguage();
+    String brp_code = getLanguageModules(0);
+    TranslateLanguage language = getLanguage(0);
+    //looping through languages
+    languages.forEach((lang) { x ++; 
+      if (lang == default_language) {
+        brp_code = getLanguageModules(x);
+        language = getLanguage(x);
+      }
+    }); 
+    // return brp code
+    return language; 
+  }
+
+  // getting the user selected lnaguage choice
+  static Future <TranslateLanguage> getTranslateLanguage () async {
+    // getting built in translated langauges
+    List <String> languages = Languages.getSupportedLanguages(); int x = -1;
+    String default_language = await LocalStorage(callback: (val) {}).getTranslateLanguage();
+    String brp_code = getLanguageModules(7);
+    TranslateLanguage language = getLanguage(0);
+    // looping through available languages
+    languages.forEach((lang) { x ++;
+      if (lang == default_language) {
+        brp_code = getLanguageModules(x);
+        language = getLanguage(x);
+      }
+    });
+    return language;
+  }
+
   // locally stored languages
   static String getLanguageModules (index) {
     return [
@@ -61,6 +95,19 @@ class LanguageNetwork {
       TranslateLanguage.korean.bcpCode, TranslateLanguage.portuguese.bcpCode,
       TranslateLanguage.romanian.bcpCode, TranslateLanguage.russian.bcpCode,
       TranslateLanguage.turkish.bcpCode,
+    ][index];
+  }
+
+  static TranslateLanguage getLanguage (index) {
+    return [
+      TranslateLanguage.english, TranslateLanguage.spanish,
+      TranslateLanguage.chinese, TranslateLanguage.japanese,
+      TranslateLanguage.german, TranslateLanguage.greek,
+      TranslateLanguage.french, TranslateLanguage.hebrew,
+      TranslateLanguage.hindi, TranslateLanguage.italian,
+      TranslateLanguage.korean, TranslateLanguage.portuguese,
+      TranslateLanguage.romanian, TranslateLanguage.russian,
+      TranslateLanguage.turkish,
     ][index];
   }
  
