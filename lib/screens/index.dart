@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:language_processor/fragments/home.dart';
 import 'package:language_processor/fragments/settings.dart';
+import 'package:language_processor/utils/TextToSpeech.dart';
 import 'package:language_processor/utils/speech.dart';
 
 class IndexScreen extends StatefulWidget {
@@ -39,7 +40,7 @@ class _IndexScreenState extends State<IndexScreen> {
       leading: Image.asset("assets/img/icon.png"),
       actions: [
         IconButton(icon: Icon(CupertinoIcons.speaker_1_fill, color: Colors.grey,), onPressed: () async {
-          await Speech(callback: () {
+          await TextToSpeech(callback: () {
             print("spoken");
           }).speak("Jilo Billionaire");
         },),
