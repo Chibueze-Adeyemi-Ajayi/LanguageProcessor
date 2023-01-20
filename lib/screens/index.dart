@@ -24,7 +24,7 @@ class _IndexScreenState extends State<IndexScreen> {
 
   });
 
-  void alert_dev () {
+  void alertdev () {// showAboutDialog(context: context)
     showDialog(context: context, builder: (context) {
       return AlertDialog(
         title: Text("About"),
@@ -81,7 +81,8 @@ class _IndexScreenState extends State<IndexScreen> {
             }, child: ListTile(iconColor: Colors.blueAccent, title: Text("Settings"), leading: Icon(Icons.settings, color: Colors.grey,),)),
             // about application
             PopupMenuItem(onTap: () {
-              alert_dev();
+              Navigator.pop(context);
+              alertdev();
             }, child: ListTile(iconColor: Colors.blueAccent, title: Text("About"), leading: Icon(Icons.info, color: Colors.grey,),)),
           ];
         }, icon: Icon(Icons.more_vert, color: Colors.grey),)
