@@ -65,7 +65,7 @@ class _IndexScreenState extends State<IndexScreen> {
         IconButton(icon: Icon(CupertinoIcons.speaker_1_fill, color: Colors.grey,), onPressed: () async {
           await TextToSpeech(callback: () {
             print(HomePageState.inputTextController.text);
-          }).speak(HomePageState.inputTextController.text);
+          }).speak(HomePageState.outputTextController.text);
         },),
         PopupMenuButton(itemBuilder: (context) {
           return [
@@ -73,7 +73,7 @@ class _IndexScreenState extends State<IndexScreen> {
             PopupMenuItem(onTap: () async {
               await TextToSpeech(callback: () {
                 print(HomePageState.inputTextController.text);
-              }).speak(HomePageState.inputTextController.text);
+              }).speak(HomePageState.outputTextController.text);
             }, child: ListTile(iconColor: Colors.blueAccent, title: Text("Text to speech"), leading: Icon(CupertinoIcons.speaker_1_fill, color: Colors.grey,),)),
             // settings
             PopupMenuItem(onTap: () {
