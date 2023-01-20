@@ -12,7 +12,7 @@ class HomePage extends StatefulWidget {
 
  TextEditingController inputTextController = new TextEditingController(), outputTextController = new TextEditingController();
 
-class _HomePageState extends State<HomePage> { String lang = "null";
+class _HomePageState extends State<HomePage> { String lang = "null", translate = "null";
   @override
   void initState() {
     // TODO: implement initState
@@ -49,7 +49,7 @@ class _HomePageState extends State<HomePage> { String lang = "null";
           Container(height: 25,),
           Text("Detected langauge: $lang"),
           Container(height: 15,),
-          Text("Translating to: $lang"),
+          Text("Translating to: $translate"),
           Container(height: 25,),
           Container(child: TextField( 
               enabled: false,
@@ -85,12 +85,13 @@ class _HomePageState extends State<HomePage> { String lang = "null";
             children: [
             Text("Translate", style: TextStyle(color: Colors.white, fontSize: 18),), Container(width: 15,), Icon(Icons.translate, color: Colors.white,)
           ],),), onTap: () async {
-            // String language = await LanguageNetwork.detectLanguage(inputTextController.text, context);
-            // String response = await LanguageNetwork.translate(inputTextController.text, context);
-            String response = await LanguageNetwork.getTranslateLanguageBRPCode(); 
+            String language = await LanguageNetwork.detectLanguage(inputTextController.text, context);
+            String response = await LanguageNetwork.translate(inputTextController.text, context);
+            String translating_lang = await LanguageNetwork.getTranslateLanguageBRPCode();
+            // String response = await LanguageNetwork.getTranslateLanguageBRPCode(); 
             setState(() {
               outputTextController.text = response;
-              // lang = language;
+              lang = language; translate = translating_lang;
             });
           },)
           ),
