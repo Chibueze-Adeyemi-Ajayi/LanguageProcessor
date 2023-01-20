@@ -7,13 +7,14 @@ import 'package:language_processor/utils/speech.dart';
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<HomePage> createState() => HomePageState();
 }
 
- TextEditingController inputTextController = new TextEditingController(), outputTextController = new TextEditingController();
+class HomePageState extends State<HomePage> { String lang = "null", translate = "null";
+  
+static final TextEditingController inputTextController = new TextEditingController(), outputTextController = new TextEditingController();
 
-class _HomePageState extends State<HomePage> { String lang = "null", translate = "null";
-  @override
+@override
   void initState() {
     // TODO: implement initState
     super.initState();

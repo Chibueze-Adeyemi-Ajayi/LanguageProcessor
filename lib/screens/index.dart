@@ -19,7 +19,10 @@ class _IndexScreenState extends State<IndexScreen> {
   Color home_color = Colors.blueAccent,
       settings_color = Colors.grey;
 
-  Speech speech = Speech(callback: (value) {print(value);});
+  Speech speech = Speech(callback: (value) {
+    HomePageState.inputTextController.text = value;
+    
+  });
   void _init_speech () async {
       await speech.initSpeech();
   }
@@ -40,9 +43,10 @@ class _IndexScreenState extends State<IndexScreen> {
       leading: Image.asset("assets/img/icon.png"),
       actions: [
         IconButton(icon: Icon(CupertinoIcons.speaker_1_fill, color: Colors.grey,), onPressed: () async {
-          await TextToSpeech(callback: () {
-            print("spoken");
-          }).speak("Jilo Billionaire");
+          // await TextToSpeech(callback: () {
+          //   print(HomePageState.inputTextController.text);
+          // }).speak("Jilo Billionaire");
+          print(HomePageState.inputTextController.text);
         },),
         PopupMenuButton(itemBuilder: (context) {
           return [];
