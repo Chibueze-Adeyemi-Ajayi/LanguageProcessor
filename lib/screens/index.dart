@@ -23,6 +23,11 @@ class _IndexScreenState extends State<IndexScreen> {
     HomePageState.inputTextController.text = value;
 
   });
+
+  void alert_dev () {
+    
+  }
+
   void _init_speech () async {
       await speech.initSpeech();
   }
