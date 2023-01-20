@@ -25,7 +25,22 @@ class _IndexScreenState extends State<IndexScreen> {
   });
 
   void alert_dev () {
-    
+    showDialog(context: context, builder: (context) {
+      return AlertDialog(
+        title: Text("About"),
+        actions: [
+          TextButton(onPressed: () {
+            Navigator.pop(context);
+          }, child: Text("Cancel"))
+        ],
+        content: Column(children: [
+          Text("App Name: Language processor"), Container(height: 15,),
+          Text("App version: 0.0.0.1"), Container(height: 15,),
+          Text("Developer: Ajayi Chibueze Adeyemi"), Container(height: 15,),
+          Text("Company: Jilo Innovations"), Container(height: 15,),
+        ],),
+      );
+    });
   }
 
   void _init_speech () async {
