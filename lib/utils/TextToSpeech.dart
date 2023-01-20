@@ -9,13 +9,13 @@ class TextToSpeech {
   FlutterTts flutterTts = FlutterTts();
 
   // speaking via speaker
-  Future speak(String text) async{
+  Future <void> speak(String text) async{
     var result = await flutterTts.speak(text);
     if (result == 1) callback(true); else callback(false);
   }
 
   // stopping the speech event
-  Future stop() async{ 
+  Future <void> stop() async{ 
       var result = await flutterTts.stop();
       if (result == 1) callback(true); else callback(false);
   }
