@@ -54,6 +54,7 @@ class LanguageNetwork {
     return brp_code;
   }
 
+  // locally stored languages
   static String getLanguageModules (index) {
     return [
       TranslateLanguage.english.bcpCode, TranslateLanguage.spanish.bcpCode,
