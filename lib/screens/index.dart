@@ -21,7 +21,7 @@ class _IndexScreenState extends State<IndexScreen> {
 
   Speech speech = Speech(callback: (value) {
     HomePageState.inputTextController.text = value;
-    
+
   });
   void _init_speech () async {
       await speech.initSpeech();
@@ -43,13 +43,25 @@ class _IndexScreenState extends State<IndexScreen> {
       leading: Image.asset("assets/img/icon.png"),
       actions: [
         IconButton(icon: Icon(CupertinoIcons.speaker_1_fill, color: Colors.grey,), onPressed: () async {
-          // await TextToSpeech(callback: () {
-          //   print(HomePageState.inputTextController.text);
-          // }).speak("Jilo Billionaire");
-          print(HomePageState.inputTextController.text);
+          await TextToSpeech(callback: () {
+            print(HomePageState.inputTextController.text);
+          }).speak(HomePageState.inputTextController.text);
         },),
         PopupMenuButton(itemBuilder: (context) {
-          return [];
+          return [
+            // text to speech
+            PopupMenuItem(onTap: () {
+
+            }, child: ListTile(iconColor: Colors.blueAccent, title: Text("Text to speech"), leading: Icon(CupertinoIcons.speaker_1_fill, color: Colors.grey,),)),
+            // settings
+            PopupMenuItem(onTap: () {
+              
+            }, child: ListTile(iconColor: Colors.blueAccent, title: Text("Settings"), leading: Icon(Icons.settings, color: Colors.grey,),)),
+            // about application
+            PopupMenuItem(onTap: () {
+              
+            }, child: ListTile(iconColor: Colors.blueAccent, title: Text("About"), leading: Icon(Icons.info, color: Colors.grey,),)),
+          ];
         }, icon: Icon(Icons.more_vert, color: Colors.grey),)
       ],
     );
