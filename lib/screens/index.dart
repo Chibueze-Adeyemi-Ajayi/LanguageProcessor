@@ -50,16 +50,18 @@ class _IndexScreenState extends State<IndexScreen> {
         PopupMenuButton(itemBuilder: (context) {
           return [
             // text to speech
-            PopupMenuItem(onTap: () {
-
+            PopupMenuItem(onTap: () async {
+              await TextToSpeech(callback: () {
+                print(HomePageState.inputTextController.text);
+              }).speak(HomePageState.inputTextController.text);
             }, child: ListTile(iconColor: Colors.blueAccent, title: Text("Text to speech"), leading: Icon(CupertinoIcons.speaker_1_fill, color: Colors.grey,),)),
             // settings
             PopupMenuItem(onTap: () {
-              
+              pager_controller.nextPage(duration: Duration(milliseconds: 500), curve: Curves.ease);
             }, child: ListTile(iconColor: Colors.blueAccent, title: Text("Settings"), leading: Icon(Icons.settings, color: Colors.grey,),)),
             // about application
             PopupMenuItem(onTap: () {
-              
+              alert_dev();
             }, child: ListTile(iconColor: Colors.blueAccent, title: Text("About"), leading: Icon(Icons.info, color: Colors.grey,),)),
           ];
         }, icon: Icon(Icons.more_vert, color: Colors.grey),)
