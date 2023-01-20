@@ -20,4 +20,20 @@ class TextToSpeech {
       if (result == 1) callback(true); else callback(false);
   }
 
+  Future setLanguage (String lang) async {
+    await flutterTts.setLanguage(lang);
+  }
+
+  Future setSpeechRate (double rate) async {
+    await flutterTts.setSpeechRate(rate);
+  }
+
+  Future setVolume (double volume) async {
+    await flutterTts.setVolume(volume);
+  }
+
+  Future setPitch (double pitch) async {
+    await flutterTts.setPitch(pitch);
+  }
+
 }
