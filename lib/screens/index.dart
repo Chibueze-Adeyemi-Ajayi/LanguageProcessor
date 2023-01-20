@@ -38,7 +38,11 @@ class _IndexScreenState extends State<IndexScreen> {
       backgroundColor: Colors.white, elevation: .25,
       leading: Image.asset("assets/img/icon.png"),
       actions: [
-        IconButton(icon: Icon(CupertinoIcons.speaker_1_fill, color: Colors.grey,), onPressed: () async {},),
+        IconButton(icon: Icon(CupertinoIcons.speaker_1_fill, color: Colors.grey,), onPressed: () async {
+          await Speech(callback: () {
+            print("spoken");
+          }).speak("Jilo Billionaire");
+        },),
         PopupMenuButton(itemBuilder: (context) {
           return [];
         }, icon: Icon(Icons.more_vert, color: Colors.grey),)
