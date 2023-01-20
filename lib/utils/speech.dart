@@ -42,6 +42,7 @@ class Speech {
     if (result == 1) callback(true); else callback(false);
   }
 
+  // stopping the speech event
   Future _stop() async{ 
       var result = await flutterTts.stop();
       if (result == 1) callback(true); else callback(false);
