@@ -81,10 +81,10 @@ class LanguageNetwork {
 
       // downloading language models
       
-      if (!await modelManager.isModelDownloaded(TranslateLanguage.english.bcpCode))
-      final bool response_ = await modelManager.isModelDownloaded(TranslateLanguage.english.bcpCode);
-      if (!await modelManager.isModelDownloaded(TranslateLanguage.hebrew.bcpCode))
-      final bool response__ = await modelManager.isModelDownloaded((TranslateLanguage.hebrew.bcpCode));
+      if (!await modelManager.isModelDownloaded(await getLocalLanguageBRPCode()))
+      final bool response_ = await modelManager.isModelDownloaded(await getLocalLanguageBRPCode());
+      if (!await modelManager.isModelDownloaded(await getTranslateLanguageBRPCode()))
+      final bool response__ = await modelManager.isModelDownloaded(await getTranslateLanguageBRPCode());
 
     // getting the translated text
       response += await _onDeviceTranslator.translateText(text); Navigator.pop(context);
