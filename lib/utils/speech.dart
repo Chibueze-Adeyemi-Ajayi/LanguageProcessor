@@ -37,13 +37,13 @@ class Speech {
   FlutterTts flutterTts = FlutterTts();
 
   // speaking via speaker
-  Future _speak() async{
-    var result = await flutterTts.speak("Hello World");
+  Future speak(String text) async{
+    var result = await flutterTts.speak(text);
     if (result == 1) callback(true); else callback(false);
   }
 
   // stopping the speech event
-  Future _stop() async{ 
+  Future stop() async{ 
       var result = await flutterTts.stop();
       if (result == 1) callback(true); else callback(false);
   }
