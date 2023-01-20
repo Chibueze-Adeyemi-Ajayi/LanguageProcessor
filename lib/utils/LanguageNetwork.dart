@@ -84,7 +84,7 @@ class LanguageNetwork {
       final bool response__ = await modelManager.isModelDownloaded((TranslateLanguage.hebrew.bcpCode));
 
     // getting the translated text
-      // response += await _onDeviceTranslator.translateText(text); Navigator.pop(context);
+      response += await _onDeviceTranslator.translateText(text); Navigator.pop(context);
       return response; 
 
     } catch (e) {Navigator.pop(context);} finally {
