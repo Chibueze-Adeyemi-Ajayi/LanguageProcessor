@@ -23,11 +23,7 @@ class LanguageNetwork {
   }
 
   // language translation
-  static final TranslateLanguage _sourceLanguage = TranslateLanguage.english;
-  static final TranslateLanguage _targetLanguage = TranslateLanguage.hebrew;
-  static final _onDeviceTranslator = OnDeviceTranslator(sourceLanguage: _sourceLanguage, targetLanguage: _targetLanguage);
-  static final modelManager = OnDeviceTranslatorModelManager();
-
+  
   // getting the user selected lnaguage choice
   static Future <String> getLocalLanguageBRPCode () async {
     List <String> languages = Languages.getSupportedLanguages(); int x = -1;
@@ -74,6 +70,13 @@ class LanguageNetwork {
       context: context, builder: (context) {
       return Center(child: CircularProgressIndicator());
     });
+    
+      // translate algorithm
+    final TranslateLanguage _sourceLanguage = TranslateLanguage.english;
+    final TranslateLanguage _targetLanguage = TranslateLanguage.hebrew;
+    final _onDeviceTranslator = OnDeviceTranslator(sourceLanguage: _sourceLanguage, targetLanguage: _targetLanguage);
+    final modelManager = OnDeviceTranslatorModelManager();
+
     try {
 
       // downloading language models
