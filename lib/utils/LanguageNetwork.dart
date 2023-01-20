@@ -119,8 +119,8 @@ class LanguageNetwork {
     });
     
       // translate algorithm
-    final TranslateLanguage _sourceLanguage = TranslateLanguage.english;
-    final TranslateLanguage _targetLanguage = TranslateLanguage.hebrew;
+    final TranslateLanguage _sourceLanguage = await getLocalLanguage();
+    final TranslateLanguage _targetLanguage = await getTranslateLanguage();
     final _onDeviceTranslator = OnDeviceTranslator(sourceLanguage: _sourceLanguage, targetLanguage: _targetLanguage);
     final modelManager = OnDeviceTranslatorModelManager();
 
