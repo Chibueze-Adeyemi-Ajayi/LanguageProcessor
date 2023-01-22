@@ -19,7 +19,14 @@ const Banner = () => {
                 <div className="w-full flex font-bold text-6xl h-full">
                     <font className="w-full flex flex-col space-y-4 my-auto text-center">
                        <font>Built on </font> 
-                       <div>Google</div>  
+                       <div className="text-8xl">
+                            <font className="text-blue-600">G</font>
+                            <font className="text-red-600">o</font>
+                            <font className="text-yellow-400">o</font>
+                            <font className="text-blue-600">g</font>
+                            <font className="text-green-600">l</font>
+                            <font className="text-red-600">e</font>
+                        </div>  
                        <font>translate engine</font> 
                     </font>
                 </div>
