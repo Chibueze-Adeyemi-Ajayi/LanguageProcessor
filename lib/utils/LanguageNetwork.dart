@@ -122,8 +122,7 @@ class LanguageNetwork {
     final TranslateLanguage _sourceLanguage = await getLocalLanguage();
     final TranslateLanguage _targetLanguage = await getTranslateLanguage();
     final _onDeviceTranslator = OnDeviceTranslator(sourceLanguage: _sourceLanguage, targetLanguage: _targetLanguage);
-    final modelManager = OnDeviceTranslatorModelManager();
-
+    
     try {
 
       // downloading language models
@@ -140,10 +139,12 @@ class LanguageNetwork {
   // downloading libraries
   Future <void> downloadDictionary () async {
 
+    final modelManager = OnDeviceTranslatorModelManager();
+
     // downloading libraries
-      if (!await modelManager.isModelDownloaded(await getLocalLanguageBRPCode()))
+    if (!await modelManager.isModelDownloaded(await getLocalLanguageBRPCode()))
       final bool response_ = await modelManager.isModelDownloaded(await getLocalLanguageBRPCode());
-      if (!await modelManager.isModelDownloaded(await getTranslateLanguageBRPCode()))
+    if (!await modelManager.isModelDownloaded(await getTranslateLanguageBRPCode()))
       final bool response__ = await modelManager.isModelDownloaded(await getTranslateLanguageBRPCode());
 
   }
