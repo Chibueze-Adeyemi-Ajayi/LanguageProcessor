@@ -156,5 +156,24 @@ class LanguageNetwork {
   }
 
   // downloading default language dictionaries
+  static Future <void> downloadDefaultDictionary (BuildContext ctx) async {
+
+    showDialog(
+      barrierDismissible: false,
+      context: ctx, builder: (context) {
+      return Center(child: CircularProgressIndicator());
+    });
+
+    final modelManager = OnDeviceTranslatorModelManager();
+
+    // downloading libraries
+    if (!await modelManager.isModelDownloaded(TranslateLanguage.english.bcpCode))
+      final bool response_ = await modelManager.isModelDownloaded(TranslateLanguage.english.bcpCode);
+    if (!await modelManager.isModelDownloaded(await getTranslateLanguageBRPCode()))
+      final bool response__ = await modelManager.isModelDownloaded(await getTranslateLanguageBRPCode());
+
+    Navigator.pop(ctx);
+
+  }
    
 }
