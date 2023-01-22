@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:language_processor/screens/flashscreen.dart';
 import 'package:language_processor/screens/index.dart';
+import 'package:language_processor/utils/LanguageNetwork.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,6 +29,14 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   
+  @override
+  void initState() {
+    // TODO: implement initState
+    // downloading default language Dictionary
+    LanguageNetwork.downloadDefaultDictionary(context);
+    super.initState();
+  }
+
   int page_state = 0;
   void setPageState (int page) {
     setState(() {

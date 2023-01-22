@@ -161,7 +161,14 @@ class LanguageNetwork {
     showDialog(
       barrierDismissible: false,
       context: ctx, builder: (context) {
-      return Center(child: CircularProgressIndicator());
+      return Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+        CircularProgressIndicator(),
+        Container(height: 10,),
+        Text("Downloading default language dictionaries")
+      ],);
     });
 
     final modelManager = OnDeviceTranslatorModelManager();
