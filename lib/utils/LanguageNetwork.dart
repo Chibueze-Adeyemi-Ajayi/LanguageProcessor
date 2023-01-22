@@ -134,7 +134,7 @@ class LanguageNetwork {
     } return response;
   }
 
-  // downloading libraries
+  // downloading dictionaries
   static Future <void> downloadDictionary (BuildContext ctx) async {
 
     showDialog(
