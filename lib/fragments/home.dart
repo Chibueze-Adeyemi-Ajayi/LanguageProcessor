@@ -86,13 +86,14 @@ static final TextEditingController inputTextController = new TextEditingControll
             children: [
             Text("Translate", style: TextStyle(color: Colors.white, fontSize: 18),), Container(width: 15,), Icon(Icons.translate, color: Colors.white,)
           ],),), onTap: () async {
-            String language = await LanguageNetwork.detectLanguage(inputTextController.text, context);
+            //String language = await LanguageNetwork.detectLanguage(inputTextController.text, context);
             String response = await LanguageNetwork.translate(inputTextController.text, context);
             String translating_lang = await LanguageNetwork.getTranslateLanguageBRPCode();
             // String response = await LanguageNetwork.getTranslateLanguageBRPCode(); 
             setState(() {
               outputTextController.text = response;
-              lang = language; translate = translating_lang;
+              // lang = language; 
+              translate = translating_lang;
             });
           },)
           ),
