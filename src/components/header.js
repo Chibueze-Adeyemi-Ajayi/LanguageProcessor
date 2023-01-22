@@ -3,7 +3,7 @@ import icon from "../assets/img/icon.png";
 let Header = () => {
     return (
         <nav className="w-full fixed top-0 left-0 p-2 h-16 bg-white border-b flex flex-row space-x-3 border-gray-100">
-           <img src={icon}></img>
+           <img className="w-16 h-12" src={icon}></img>
            <font className="my-auto md:w-96 w-84 font-bold text-gray-800 text-xl md:text-2xl">Language Processor</font>
            <section className="w-full grid-cols-3 h-full hidden md:grid gap-3">
                 <div className="w-full md:col-span-2 flex">

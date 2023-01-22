@@ -24,7 +24,7 @@ const GridSection = (params) => {
 } 
 
 const Image = (params) => {
-    return <img className="mx-auto md:w-fit md:h-fit w-fit h-56" src={params.src}></img>
+    return <img className="mx-auto md:w-fit md:h-fit w-40 h-72" src={params.src}></img>
 }
 
 const Text = params => {

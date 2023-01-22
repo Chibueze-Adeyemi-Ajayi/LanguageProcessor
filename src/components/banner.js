@@ -11,7 +11,7 @@ const Banner = () => {
             {/* logo & text section */}
             <div className="w-full h-[400px] grid md:grid-cols-2 gap-3">
                 {/* image section */}
-                <section className="w-full p-12 h-full hidden md:flex">
+                <section className="w-full p-12 h-fullflex">
                     <img className="my-auto" src={logo}/>
                 </section>
                 

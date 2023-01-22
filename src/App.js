@@ -13,7 +13,7 @@ function App() {
       <Header />
       <br></br><br></br><br></br>
       {/* banner */}
-      <Banner /><br></br><br></br>
+      <Banner /><br></br><br></br><br></br>
       {/* about section */}
       <About />
       {/* download */}
