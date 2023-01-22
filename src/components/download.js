@@ -1,6 +1,7 @@
 import mock3 from "../assets/img/mock3.png";
 import appstore from "../assets/img/appstore.png";
 import playstore from "../assets/img/playstore.png";
+import app from "../assets/apk/app.apk";
 
 const Download = () => {
     return (
@@ -16,8 +17,10 @@ const Download = () => {
                         Translate any text from any language <br></br> to any language, at just a click. <br></br>
                         <br></br>
                         <section className="w-full h-fit grid grid-cols-2 gap-4">
-                            <img className="h-12" src={playstore}></img>
-                            <img className="h-12" src={appstore}></img>
+                            <a href={app} download><img className="h-12" src={playstore}></img></a>
+                            <img onClick={()=>{
+                                alert("Coming soon");
+                            }} className="h-12" src={appstore}></img>
                         </section>
                     </font>
                 </section>

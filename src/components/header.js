@@ -15,7 +15,7 @@ let Header = () => {
                     </section>
                 </div>
                 <div className="w-full flex">
-                    <button className="px-6 py-2 my-auto md:mx-auto bg-blue-600 text-white rounded-md">Download</button>
+                    <a href="#download" className="px-6 py-2 my-auto md:mx-auto bg-blue-600 text-white rounded-md">Download</a>
                 </div>
            </section>
         </nav>
