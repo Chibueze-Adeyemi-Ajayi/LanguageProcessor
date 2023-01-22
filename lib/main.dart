@@ -3,7 +3,7 @@ import 'package:language_processor/screens/flashscreen.dart';
 import 'package:language_processor/screens/index.dart';
 import 'package:language_processor/utils/LanguageNetwork.dart';
 
-void main() {
+void main() async {
   runApp(const MyApp());
 }
 
@@ -29,16 +29,10 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   
-  Future <void> download_default_dict () async {
-     await LanguageNetwork.downloadDefaultDictionary(context);
-  }
-
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    // downloading default language Dictionary
-     download_default_dict();
   }
 
   int page_state = 0;

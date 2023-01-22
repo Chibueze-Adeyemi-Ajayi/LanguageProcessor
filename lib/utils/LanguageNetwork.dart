@@ -125,6 +125,8 @@ class LanguageNetwork {
     
     try {
 
+      // checking if local defaukt language dict exists
+
       // getting the translated text
       response += await _onDeviceTranslator.translateText(text); Navigator.pop(context);
       return response; 
@@ -156,7 +158,7 @@ class LanguageNetwork {
   }
 
   // downloading default language dictionaries
-  static Future <void> downloadDefaultDictionary (BuildContext ctx) async {
+  static Future <void> downloadDefaultDictionary () async {
 
     final modelManager = OnDeviceTranslatorModelManager();
 
@@ -165,8 +167,6 @@ class LanguageNetwork {
       final bool response_ = await modelManager.isModelDownloaded(TranslateLanguage.english.bcpCode);
     if (!await modelManager.isModelDownloaded(TranslateLanguage.spanish.bcpCode))
       final bool response__ = await modelManager.isModelDownloaded(TranslateLanguage.spanish.bcpCode);
-
-    Navigator.pop(ctx);
 
   }
    

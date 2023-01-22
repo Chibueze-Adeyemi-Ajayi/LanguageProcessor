@@ -17,6 +17,7 @@ static final TextEditingController inputTextController = new TextEditingControll
 @override
   void initState() {
     // TODO: implement initState
+    // download_default_dict();
     super.initState();
   }
   @override
