@@ -128,11 +128,6 @@ class LanguageNetwork {
 
       // downloading language models
       
-      if (!await modelManager.isModelDownloaded(await getLocalLanguageBRPCode()))
-      final bool response_ = await modelManager.isModelDownloaded(await getLocalLanguageBRPCode());
-      if (!await modelManager.isModelDownloaded(await getTranslateLanguageBRPCode()))
-      final bool response__ = await modelManager.isModelDownloaded(await getTranslateLanguageBRPCode());
-
     // getting the translated text
       response += await _onDeviceTranslator.translateText(text); Navigator.pop(context);
       return response; 
@@ -143,5 +138,14 @@ class LanguageNetwork {
   }
 
   // downloading libraries
+  Future <void> downloadDictionary () async {
+
+    // downloading libraries
+      if (!await modelManager.isModelDownloaded(await getLocalLanguageBRPCode()))
+      final bool response_ = await modelManager.isModelDownloaded(await getLocalLanguageBRPCode());
+      if (!await modelManager.isModelDownloaded(await getTranslateLanguageBRPCode()))
+      final bool response__ = await modelManager.isModelDownloaded(await getTranslateLanguageBRPCode());
+
+  }
    
 }
