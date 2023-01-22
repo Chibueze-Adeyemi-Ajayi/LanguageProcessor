@@ -84,6 +84,8 @@ class LanguageNetwork {
     return language;
   }
 
+  static final modelManager = OnDeviceTranslatorModelManager();
+
   // locally stored languages
   static String getLanguageModules (index) {
     return [
@@ -126,7 +128,8 @@ class LanguageNetwork {
     try {
 
       // checking if local defaukt language dict exists
-
+      if (!await modelManager.isModelDownloaded(TranslateLanguage.english.bcpCode) || !await modelManager.isModelDownloaded(TranslateLanguage.spanish.bcpCode))
+        await downloadDefaultDictionary();
       // getting the translated text
       response += await _onDeviceTranslator.translateText(text); Navigator.pop(context);
       return response; 
@@ -159,8 +162,6 @@ class LanguageNetwork {
 
   // downloading default language dictionaries
   static Future <void> downloadDefaultDictionary () async {
-
-    final modelManager = OnDeviceTranslatorModelManager();
 
     // downloading libraries
     if (!await modelManager.isModelDownloaded(TranslateLanguage.english.bcpCode))
