@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:language_processor/screens/flashscreen.dart';
 import 'package:language_processor/screens/index.dart';
+import 'package:language_processor/utils/LanguageNetwork.dart';
 import 'package:language_processor/utils/Languages.dart';
 import 'package:language_processor/utils/LocalStorage.dart';
 
@@ -74,6 +75,8 @@ class _SettingsPageState extends State<SettingsPage> {
                 );
               }).toList(), 
               onChanged: (String ? selected) async {
+                // downloading the dictionary
+                await LanguageNetwork.downloadDictionary(context);
                 await LocalStorage(callback: (str) {
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(str)));
                 }).addTranslateLanguage(selected.toString());

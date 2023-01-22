@@ -153,6 +153,8 @@ class LanguageNetwork {
     if (!await modelManager.isModelDownloaded(await getTranslateLanguageBRPCode()))
       final bool response__ = await modelManager.isModelDownloaded(await getTranslateLanguageBRPCode());
 
+    Navigator.pop(ctx);
+
   }
    
 }
