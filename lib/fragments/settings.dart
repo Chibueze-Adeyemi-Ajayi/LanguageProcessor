@@ -55,6 +55,8 @@ class _SettingsPageState extends State<SettingsPage> {
                 );
               }).toList(), 
               onChanged: (String ? selected) async {
+                // downloading the dictionary
+                await LanguageNetwork.downloadDictionary(context);
                 await LocalStorage(callback: (str) {
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(str)));
                 }).addLocalLanguage(selected.toString());
