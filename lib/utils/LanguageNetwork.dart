@@ -137,7 +137,13 @@ class LanguageNetwork {
   }
 
   // downloading libraries
-  Future <void> downloadDictionary () async {
+  static Future <void> downloadDictionary (BuildContext ctx) async {
+
+    showDialog(
+      barrierDismissible: false,
+      context: ctx, builder: (context) {
+      return AlertDialog(content: CircularProgressIndicator(),);
+    });
 
     final modelManager = OnDeviceTranslatorModelManager();
 
