@@ -158,19 +158,6 @@ class LanguageNetwork {
   // downloading default language dictionaries
   static Future <void> downloadDefaultDictionary (BuildContext ctx) async {
 
-    showDialog(
-      barrierDismissible: false,
-      context: ctx, builder: (context) {
-      return Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-        CircularProgressIndicator(),
-        Container(height: 10,),
-        Text("Downloading default language dictionaries")
-      ],);
-    });
-
     final modelManager = OnDeviceTranslatorModelManager();
 
     // downloading libraries

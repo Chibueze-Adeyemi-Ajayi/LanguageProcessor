@@ -29,12 +29,16 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   
+  Future <void> download_default_dict () async {
+     await LanguageNetwork.downloadDefaultDictionary(context);
+  }
+
   @override
   void initState() {
     // TODO: implement initState
-    // downloading default language Dictionary
-    LanguageNetwork.downloadDefaultDictionary(context);
     super.initState();
+    // downloading default language Dictionary
+     download_default_dict();
   }
 
   int page_state = 0;
