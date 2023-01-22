@@ -62,19 +62,19 @@ class _IndexScreenState extends State<IndexScreen> {
       backgroundColor: Colors.white, elevation: .25,
       leading: Image.asset("assets/img/icon.png"),
       actions: [
-        IconButton(icon: Icon(CupertinoIcons.speaker_1_fill, color: Colors.grey,), onPressed: () async {
-          await TextToSpeech(callback: () {
-            print(HomePageState.inputTextController.text);
-          }).speak(HomePageState.outputTextController.text);
-        },),
+        // IconButton(icon: Icon(CupertinoIcons.speaker_1_fill, color: Colors.grey,), onPressed: () async {
+        //   await TextToSpeech(callback: () {
+        //     print(HomePageState.inputTextController.text);
+        //   }).speak(HomePageState.outputTextController.text);
+        // },),
         PopupMenuButton(itemBuilder: (context) {
           return [
             // text to speech
-            PopupMenuItem(onTap: () async {
-              await TextToSpeech(callback: () {
-                print(HomePageState.inputTextController.text);
-              }).speak(HomePageState.outputTextController.text);
-            }, child: ListTile(iconColor: Colors.blueAccent, title: Text("Text to speech"), leading: Icon(CupertinoIcons.speaker_1_fill, color: Colors.grey,),)),
+            // PopupMenuItem(onTap: () async {
+            //   await TextToSpeech(callback: () {
+            //     print(HomePageState.inputTextController.text);
+            //   }).speak(HomePageState.outputTextController.text);
+            // }, child: ListTile(iconColor: Colors.blueAccent, title: Text("Text to speech"), leading: Icon(CupertinoIcons.speaker_1_fill, color: Colors.grey,),)),
             // settings
             PopupMenuItem(onTap: () {
               pager_controller.nextPage(duration: Duration(milliseconds: 500), curve: Curves.ease);
