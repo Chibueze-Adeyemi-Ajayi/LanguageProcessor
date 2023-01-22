@@ -125,9 +125,7 @@ class LanguageNetwork {
     
     try {
 
-      // downloading language models
-      
-    // getting the translated text
+      // getting the translated text
       response += await _onDeviceTranslator.translateText(text); Navigator.pop(context);
       return response; 
 
@@ -142,7 +140,7 @@ class LanguageNetwork {
     showDialog(
       barrierDismissible: false,
       context: ctx, builder: (context) {
-      return AlertDialog(content: CircularProgressIndicator(),);
+      return Center(child: CircularProgressIndicator());
     });
 
     final modelManager = OnDeviceTranslatorModelManager();
