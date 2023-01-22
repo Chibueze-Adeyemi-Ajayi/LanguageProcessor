@@ -16,8 +16,12 @@ const Banner = () => {
                 </section>
                 
                 {/* text section */}
-                <div className="w-full h-full">
-
+                <div className="w-full flex font-bold text-6xl h-full">
+                    <font className="w-full flex flex-col space-y-4 my-auto text-center">
+                       <font>Built on </font> 
+                       <div>Google</div>  
+                       <font>translate engine</font> 
+                    </font>
                 </div>
             </div>  
 
