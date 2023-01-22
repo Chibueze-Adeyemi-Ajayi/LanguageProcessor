@@ -48,9 +48,9 @@ static final TextEditingController inputTextController = new TextEditingControll
             ),
             width: MediaQuery.of(context).size.width, height: 200,),
           Container(height: 25,),
-          Text("Detected langauge: $lang"),
-          Container(height: 15,),
-          Text("Translating to: $translate"),
+          // Text("Detected langauge: $lang"),
+          // Container(height: 15,),
+          // Text("Translating to: $translate"),
           Container(height: 25,),
           Container(child: TextField( 
               enabled: false,
