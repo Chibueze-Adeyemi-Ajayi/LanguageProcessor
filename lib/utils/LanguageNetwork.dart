@@ -99,7 +99,7 @@ class LanguageNetwork {
       TranslateLanguage.turkish.bcpCode,
     ][index];
   }
-
+  // getting translate lang
   static TranslateLanguage getLanguage (index) {
     return [
       TranslateLanguage.english, TranslateLanguage.spanish,
