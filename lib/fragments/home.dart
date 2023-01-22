@@ -28,7 +28,7 @@ static final TextEditingController inputTextController = new TextEditingControll
         height: MediaQuery.of(context).size.height,
         child: SingleChildScrollView(child: Column(children: [
           Container(height: 8,),
-          Text("JILO Language Translator", style: TextStyle(fontSize: 25),),
+          //Text("JILO Language Translator", style: TextStyle(fontSize: 25),),
           Container(height: 25,),
           Container(child: TextField( 
               controller: inputTextController,
