@@ -9,7 +9,7 @@ const Download = () => {
             <h1 className="w-full h-fit mx-auto text-4xl md:text-7xl font-extrabold text-gray-800">App <br></br>Download</h1>
             <div className="w-full h-fit grid md:grid-cols-2">
                 <section className="w-full h-fit flex p-12">
-                    <img className="mx-auto " src={mock3}></img>
+                    <img className="mx-auto w-fit md:h-fit h-56" src={mock3}></img>
                 </section>
                 <section className="w-full h-full flex">
                     <font className="text-gray-900 text-xl my-auto h-fit flex flex-col space-y-4">

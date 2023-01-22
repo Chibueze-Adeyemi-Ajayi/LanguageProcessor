@@ -5,8 +5,8 @@ const Banner = () => {
         <section id="home" className="w-full h-fit p-6 flex flex-col space-y-6">
 
             {/* heading section */}
-            <h1 className="font-bold text-5xl md:flex hidden w-full text-center text-gray-800">Language Processor</h1>
-            <font className="text-center font-5xl md:flex hidden font-semibold">Any word, any language, you can translate. The future of translation. </font>
+            <h1 className="font-bold text-5xl md:flex  w-full text-center text-gray-800">Language Processor</h1>
+            <font className="text-center font-5xl md:flex  font-semibold">Any word, any language, you can translate. The future of translation. </font>
             
             {/* logo & text section */}
             <div className="w-full h-[400px] grid md:grid-cols-2 gap-3">
@@ -16,10 +16,10 @@ const Banner = () => {
                 </section>
                 
                 {/* text section */}
-                <div className="w-full flex md:mt-0 mt-24 font-bold text-6xl h-full">
+                <div className="w-full flex md:mt-0 mt-24 font-bold text-5xl md:text-6xl h-full">
                     <font className="w-full flex flex-col space-y-4 my-auto text-center">
                        <font>Built on </font> 
-                       <div className="text-8xl">
+                       <div className="md:text-8xl text-6xl">
                             <font className="text-blue-600">G</font>
                             <font className="text-red-600">o</font>
                             <font className="text-yellow-400">o</font>

@@ -24,7 +24,7 @@ const GridSection = (params) => {
 } 
 
 const Image = (params) => {
-    return <img className="mx-auto " src={params.src}></img>
+    return <img className="mx-auto md:w-fit md:h-fit w-fit h-56" src={params.src}></img>
 }
 
 const Text = params => {
@@ -34,7 +34,7 @@ const Text = params => {
         <section className="w-full flex flex-col h-fit space-y-5">
             <font className="text-3md">{params.content}</font><br></br>
         <hr></hr>
-            <button className="px-6 py-3 my-auto w-36 bg-blue-600 text-white rounded-md">Download</button>
+            <a href="#download" className="px-6 py-3 my-auto w-36 bg-blue-600 text-white rounded-md">Download</a>
         </section>
     </section>
 }
