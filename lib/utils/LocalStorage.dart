@@ -1,5 +1,7 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
+
+
 class LocalStorage {
    LocalStorage({required this.callback});  final callback;
    String key = "nlp", key2 = "nlp_2";
