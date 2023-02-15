@@ -1,7 +1,7 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
 // this module handles 
-// localstorage store
+// localstorage stores
 
 class LocalStorage {
    LocalStorage({required this.callback});  final callback;
