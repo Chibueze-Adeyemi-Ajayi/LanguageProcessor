@@ -1,7 +1,7 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
 // this module handles 
-// localstorage stores the user's sele
+// localstorage stores the user's selec
 
 class LocalStorage {
    LocalStorage({required this.callback});  final callback;
