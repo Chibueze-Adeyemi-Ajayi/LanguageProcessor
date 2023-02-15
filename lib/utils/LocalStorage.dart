@@ -1,7 +1,7 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
 // this module handles 
-// localstorage stores the user's selected default la
+// localstorage stores the user's selected default lan
 
 class LocalStorage {
    LocalStorage({required this.callback});  final callback;
