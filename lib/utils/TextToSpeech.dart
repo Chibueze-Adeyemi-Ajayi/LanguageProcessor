@@ -1,6 +1,6 @@
 import 'package:flutter_tts/flutter_tts.dart';
 
-// This snip
+// This snipp
 
 class TextToSpeech {
   
