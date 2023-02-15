@@ -1,7 +1,7 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
 // this module handles 
-// localstorage stores the 
+// localstorage stores the u
 
 class LocalStorage {
    LocalStorage({required this.callback});  final callback;
