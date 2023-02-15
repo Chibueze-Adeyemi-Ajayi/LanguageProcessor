@@ -1,6 +1,6 @@
 import 'package:flutter_tts/flutter_tts.dart';
 
-// This snippet handles converting text to 
+// This snippet handles converting text to s
 
 class TextToSpeech {
   
