@@ -1,7 +1,7 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
 // this module handles 
-// localstorage stores the user's selected defau
+// localstorage stores the user's selected defaul
 
 class LocalStorage {
    LocalStorage({required this.callback});  final callback;
