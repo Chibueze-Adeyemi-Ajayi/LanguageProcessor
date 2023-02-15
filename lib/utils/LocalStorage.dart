@@ -1,7 +1,7 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
 // this module handles 
-// localstorage stores the user's selected default language i.e translate
+// localstorage stores the user's selected default language i.e translate 
 
 class LocalStorage {
    LocalStorage({required this.callback});  final callback;
