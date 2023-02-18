@@ -5,7 +5,7 @@ import 'package:language_processor/fragments/settings.dart';
 import 'package:language_processor/utils/TextToSpeech.dart';
 import 'package:language_processor/utils/speech.dart';
 
-// this is a language based application th
+// this is a language based application tha
 
 class IndexScreen extends StatefulWidget {
   const IndexScreen({Key? key, required this.callback}) : super(key: key);
