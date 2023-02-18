@@ -6,7 +6,7 @@ import 'package:language_processor/utils/TextToSpeech.dart';
 import 'package:language_processor/utils/speech.dart';
 
 // this is a language based application that processes natural (spoken words) 
-// google ml kit
+// google ml kit 
 
 class IndexScreen extends StatefulWidget {
   const IndexScreen({Key? key, required this.callback}) : super(key: key);
