@@ -5,7 +5,7 @@ import 'package:language_processor/fragments/settings.dart';
 import 'package:language_processor/utils/TextToSpeech.dart';
 import 'package:language_processor/utils/speech.dart';
 
-// this is a language based application that processes natural (s)
+// this is a language based application that processes natural (sp)
 
 class IndexScreen extends StatefulWidget {
   const IndexScreen({Key? key, required this.callback}) : super(key: key);
