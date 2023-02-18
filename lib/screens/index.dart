@@ -10,7 +10,7 @@ import 'package:language_processor/utils/speech.dart';
 // engine used: google translate
 // language: dart
 // framework: flutter 
-// dev
+// deve
 
 class IndexScreen extends StatefulWidget {
   const IndexScreen({Key? key, required this.callback}) : super(key: key);
